@@ -12,3 +12,10 @@ export const THEMES_NAMES = [
 	'springtime',
 	'ethereal',
 ] as const;
+
+export const VIEWS_NAMES = [
+	'Levels',
+	'Coding Tasks',
+	'Docs',
+	'Examples',
+] as const;

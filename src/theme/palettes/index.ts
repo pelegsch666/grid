@@ -1,27 +1,27 @@
-import { dark } from './dark';
-import { emerald } from './emerald';
-import { ethereal } from './ethereal';
-import { fantasy } from './fantasy';
-import { light } from './light';
-import { muiDark } from './muiDark';
-import { muiLight } from './muiLight';
-import { mystical } from './mystical';
-import { nature } from './nature';
-import { pastel } from './pastel';
-import { springtime } from './springtime';
-import { sunset } from './sunset';
+import { dark } from 'theme/palettes/dark';
+import { emerald } from 'theme/palettes/emerald';
+import { ethereal } from 'theme/palettes/ethereal';
+import { fantasy } from 'theme/palettes/fantasy';
+import { light } from 'theme/palettes/light';
+import { muiDark } from 'theme/palettes/muiDark';
+import { muiLight } from 'theme/palettes/muiLight';
+import { mystical } from 'theme/palettes/mystical';
+import { nature } from 'theme/palettes/nature';
+import { pastel } from 'theme/palettes/pastel';
+import { springtime } from 'theme/palettes/springtime';
+import { sunset } from 'theme/palettes/sunset';
 
 export const palettes = {
-  dark,
-  emerald,
-  fantasy,
-  light,
-  muiDark,
-  muiLight,
-  mystical,
-  nature,
-  sunset,
-  pastel,
-  springtime,
-  ethereal,
+	dark,
+	emerald,
+	fantasy,
+	light,
+	muiDark,
+	muiLight,
+	mystical,
+	nature,
+	sunset,
+	pastel,
+	springtime,
+	ethereal,
 };

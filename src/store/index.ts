@@ -4,7 +4,7 @@ import { THEMES_NAMES } from 'utils/constants';
 
 export const themeState = atom({
 	key: 'themeState',
-	default: 'dark',
+	default: 'springtime',
 }) as RecoilState<typeof THEMES_NAMES[number]>;
 
 export const isSettingDrawerOpenState = atom({
