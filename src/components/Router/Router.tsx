@@ -7,6 +7,7 @@ import { Docs } from 'views/Docs';
 import { Examples } from 'views/Examples';
 import { Home } from 'views/Home';
 import { Levels } from 'views/Levels';
+import { LevelTemplate } from 'views/Levels/components/LevelTemplate';
 import { NotFound } from 'views/NotFound';
 
 export const Router = () => {
@@ -15,7 +16,9 @@ export const Router = () => {
 			<Route path="/" element={<Home />} />
 			<Route path="/coding-tasks" element={<CodingTasks />} />
 			<Route path="/examples" element={<Examples />} />
-			<Route path="/levels" element={<Levels />} />
+			<Route path="/levels" element={<Levels />}>
+				<Route path=":levelNumber" element={<LevelTemplate />} />
+			</Route>
 			<Route path="/docs" element={<Docs />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
