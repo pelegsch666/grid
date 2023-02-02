@@ -15,7 +15,7 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
-		"noUnusedLocals": false, // TODO: set as true before production
+		"noUnusedLocals": true, // TODO: set as true before production
 		"baseUrl": "src",
 		"paths": {
 			"@/*": ["*"]

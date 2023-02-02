@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil';
 import { OutputProps } from 'views/Levels/components/Output/Output.types';
 
 // store
-import { currentLevelState, userAnswerOutputState } from 'store';
+import { userAnswerOutputState } from 'store';
 
 export const Output = (props: OutputProps) => {
 	// const currentLevel = useRecoilValue(currentLevelState);
