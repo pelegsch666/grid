@@ -1,6 +1,7 @@
 // imports from 3rd party libraries
-import { Stack } from '@mui/material';
-import { NavLink, Outlet } from 'react-router-dom';
+import { themeHelpers } from '@/utils/helpers';
+import { Button, Stack, Typography, useTheme } from '@mui/material';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 // store
@@ -11,14 +12,50 @@ export interface LevelLinkProps {
 }
 
 export const LevelLink = ({ levelIndex }: LevelLinkProps) => {
-	return <NavLink to={`/levels/${levelIndex + 1}`}>{levelIndex + 1}</NavLink>;
+	const { levelNumber } = useParams();
+	const isCurrentLevel = Number(levelNumber) === levelIndex + 1;
+	const { palette } = useTheme();
+	console.log(palette);
+	return (
+		<Button
+			variant="contained"
+			sx={{
+				backgroundColor: isCurrentLevel
+					? palette.secondary.main
+					: palette.primary.main,
+
+				fontSize: '1.5rem',
+				padding: '0',
+
+				'&:hover': {
+					backgroundColor: isCurrentLevel
+						? palette.secondary.dark
+						: palette.primary.dark,
+				},
+			}}
+		>
+			<NavLink
+				style={{
+					textDecoration: 'none',
+					color: 'inherit',
+					width: '100%',
+					height: '100%',
+				}}
+				to={`/levels/${levelIndex + 1}`}
+			>
+				{levelIndex + 1}
+			</NavLink>
+		</Button>
+	);
 };
 
 export const Levels = () => {
 	const levels = useRecoilValue(levelsState);
 	return (
 		<>
-			<h1>Iam Levels</h1>
+			<Typography variant="h1" textAlign="center">
+				Levels
+			</Typography>
 			<Stack direction="row" spacing={2}>
 				{levels.map((level, index) => (
 					<LevelLink key={level.id} levelIndex={index} />

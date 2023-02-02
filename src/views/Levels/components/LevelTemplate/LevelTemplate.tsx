@@ -1,5 +1,5 @@
 // imports from 3rd party libraries
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -24,20 +24,24 @@ export const LevelTemplate = () => {
 
 	return (
 		<>
-			<Typography
-				variant="h2"
+			<Stack
+				spacing={2}
 				sx={{
-					textAlign: 'center',
+					marginTop: '20px',
 				}}
 			>
-				Level {levelNumber}
-			</Typography>
-			<Stack direction="row" spacing={2}>
-				<Stack>
-					<Instructions instructions={currentLevel.instructions} />
+				<Instructions instructions={currentLevel.instructions} />
+
+				<Stack
+					direction="row"
+					sx={{
+						justifyContent: 'space-between',
+						width: '100%',
+					}}
+				>
 					<CodeEditor />
+					<Output />
 				</Stack>
-				<Output />
 			</Stack>
 		</>
 	);

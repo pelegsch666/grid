@@ -8,6 +8,7 @@ import 'codemirror/theme/material.css';
 import { useEffect, useState } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 
+import { Typography } from '@mui/material';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 // types
@@ -15,6 +16,9 @@ import { CodePanelProps } from 'views/Levels/components/CodePanel/CodePanel.type
 
 // store
 import { currentLevelState, userAnswerOutputState } from 'store';
+
+// styles
+import './CodePanel.css';
 
 export const CodePanel = ({ mode }: CodePanelProps) => {
 	const currentLevel = useRecoilValue(currentLevelState);
@@ -39,7 +43,15 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 
 	return (
 		<>
-			<div>{mode}</div>
+			<Typography
+				variant="h2"
+				sx={{
+					fontSize: '1.5rem',
+					fontWeight: 'bold',
+				}}
+			>
+				{mode}
+			</Typography>
 			<CodeMirror
 				onChange={(editor, data, value) => onChange(editor, data, value)}
 				options={{

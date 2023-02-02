@@ -1,4 +1,5 @@
 // imports from 3rd party libraries
+import { Stack } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 
 // components
@@ -15,9 +16,14 @@ export const CodeEditor = () => {
 
 	return (
 		<>
-			<CodePanel mode={MODES.HTML} code={currentLevel?.userAnswer?.html} />
-			<CodePanel mode={MODES.CSS} code={currentLevel?.userAnswer?.css} />
-			<CodePanel mode={MODES.JS} code={currentLevel?.userAnswer?.javascript} />
+			<Stack>
+				<CodePanel mode={MODES.HTML} code={currentLevel?.userAnswer?.html} />
+				<CodePanel mode={MODES.CSS} code={currentLevel?.userAnswer?.css} />
+				<CodePanel
+					mode={MODES.JS}
+					code={currentLevel?.userAnswer?.javascript}
+				/>
+			</Stack>
 		</>
 	);
 };
