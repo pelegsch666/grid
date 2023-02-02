@@ -1,9 +1,10 @@
 // imports from 3rd party libraries
 import { Stack } from '@mui/material';
 import { NavLink, Outlet } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
-// data
-import { levels } from 'data/levels';
+// store
+import { levelsState } from 'store';
 
 export interface LevelLinkProps {
 	levelIndex: number;
@@ -14,6 +15,7 @@ export const LevelLink = ({ levelIndex }: LevelLinkProps) => {
 };
 
 export const Levels = () => {
+	const levels = useRecoilValue(levelsState);
 	return (
 		<>
 			<h1>Iam Levels</h1>

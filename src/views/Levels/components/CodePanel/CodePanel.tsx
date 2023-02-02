@@ -5,24 +5,37 @@ import 'codemirror/mode/css/css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/theme/material.css';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 // types
 import { CodePanelProps } from 'views/Levels/components/CodePanel/CodePanel.types';
-import { CodeInput } from 'views/Levels/Levels.types';
 
 // store
-import { codeState } from 'views/Levels/Levels.store';
+import { currentLevelState, userAnswerOutputState } from 'store';
 
 export const CodePanel = ({ mode }: CodePanelProps) => {
-	const [code, setCode] = useRecoilState(codeState);
+	const [currentLevel, setCurrentLevel] = useRecoilState(currentLevelState);
+	const [currentCode, setCurrentCode] = useState('');
+	const [initCode, setInitCode] = useState('');
+	const setUserAnswerOutput = useSetRecoilState(userAnswerOutputState);
+
+	useEffect(() => {
+		setInitCode(currentLevel?.userAnswer?.[mode]);
+	}, [currentLevel?.userAnswer, mode]);
+
+	useEffect(() => {
+		setCurrentCode(initCode);
+	}, [initCode]);
 
 	const onChange = (editor: any, data: any, value: string) => {
-		const newCode = { ...codeState } as any; // TODO: fix this
-		newCode[mode] = value;
-		setCode(newCode);
+		const newUserAnswer = { ...currentLevel.userAnswer };
+		newUserAnswer[mode] = value;
+		// const newCurrentLevel = { ...currentLevel, userAnswer: newUserAnswer };
+		// setCurrentLevel(newCurrentLevel);
+		setUserAnswerOutput(newUserAnswer);
 	};
 
 	return (
@@ -36,7 +49,7 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 					lineNumbers: true,
 					inputStyle: 'textarea',
 				}}
-				value={code[mode]}
+				value={currentCode}
 			/>
 		</>
 	);

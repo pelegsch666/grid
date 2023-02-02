@@ -35,17 +35,9 @@ export const LevelTemplate = () => {
 			<Stack direction="row" spacing={2}>
 				<Stack>
 					<Instructions instructions={currentLevel.instructions} />
-					<CodeEditor
-						initContainerCssProperties={currentLevel.initContainerCssProperties}
-						initItemCssProperties={currentLevel.initItemCssProperties}
-						userCssProperties={currentLevel.userCssProperties}
-					/>
+					<CodeEditor />
 				</Stack>
-				<Output
-					initContainerCssProperties={currentLevel.initContainerCssProperties}
-					initItemCssProperties={currentLevel.initItemCssProperties}
-					userCssProperties={currentLevel.userCssProperties}
-				/>
+				<Output />
 			</Stack>
 		</>
 	);

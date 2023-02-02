@@ -22,13 +22,14 @@ export interface UserProperty {
 export interface Level {
 	id: string;
 	instructions: string[];
-	initContainerCssProperties: {
-		[key: string]: string;
+	correctAnswer: {
+		javascript: string;
+		html: string;
+		css: string;
 	};
-	initItemCssProperties: {
-		[key: string]: string;
-	};
-	userCssProperties: {
-		[key: string]: UserProperty;
+	userAnswer: {
+		javascript: string;
+		html: string;
+		css: string;
 	};
 }
