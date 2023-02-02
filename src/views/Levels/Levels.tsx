@@ -1,5 +1,4 @@
 // imports from 3rd party libraries
-import { themeHelpers } from '@/utils/helpers';
 import { Button, Stack, Typography, useTheme } from '@mui/material';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
