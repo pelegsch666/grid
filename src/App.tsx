@@ -17,6 +17,7 @@ import {
 	currentLevelState,
 	levelsState,
 	themeState,
+	userAnswerOutputState,
 } from 'store';
 
 // helpers
@@ -35,6 +36,7 @@ export const App = () => {
 	);
 
 	const setCurrentLevel = useSetRecoilState(currentLevelState);
+	const setUserAnswerOutput = useSetRecoilState(userAnswerOutputState);
 
 	useEffect(() => {
 		setLevels(levels);
@@ -48,10 +50,13 @@ export const App = () => {
 	}, [levelNumber, setCurrentLevelIndex]);
 
 	useEffect(() => {
-		if (currentLevelIndex !== null) {
-			setCurrentLevel(levels[currentLevelIndex]);
-		}
+		setCurrentLevel(levels?.[currentLevelIndex]);
 	}, [currentLevelIndex, setCurrentLevel]);
+
+	useEffect(() => {
+		const userAnswer = levels?.[currentLevelIndex]?.userAnswer;
+		setUserAnswerOutput(userAnswer);
+	}, [currentLevelIndex, setUserAnswerOutput]);
 
 	return (
 		<ThemeProvider theme={createTheme(themeHelpers.getDesignTokens(theme))}>

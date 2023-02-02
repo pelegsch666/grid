@@ -21,6 +21,7 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 	const [currentCode, setCurrentCode] = useState('');
 	const [initCode, setInitCode] = useState('');
 	const setUserAnswerOutput = useSetRecoilState(userAnswerOutputState);
+	const userAnswerOutput = useRecoilValue(userAnswerOutputState);
 
 	useEffect(() => {
 		setInitCode(currentLevel?.userAnswer?.[mode]);
@@ -31,7 +32,7 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 	}, [initCode]);
 
 	const onChange = (editor: any, data: any, value: string) => {
-		const newUserAnswer = { ...currentLevel.userAnswer };
+		const newUserAnswer = { ...userAnswerOutput };
 		newUserAnswer[mode] = value;
 		setUserAnswerOutput(newUserAnswer);
 	};

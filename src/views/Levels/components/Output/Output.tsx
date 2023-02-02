@@ -10,7 +10,6 @@ import { OutputProps } from 'views/Levels/components/Output/Output.types';
 import { userAnswerOutputState } from 'store';
 
 export const Output = (props: OutputProps) => {
-	// const currentLevel = useRecoilValue(currentLevelState);
 	const userAnswerOutput = useRecoilValue(userAnswerOutputState);
 	const [html, setHtml] = useState('');
 	const [css, setCss] = useState('');
@@ -40,7 +39,7 @@ export const Output = (props: OutputProps) => {
 		  </body>
 		</html>
 	  `);
-	}, [html, css, javascript]);
+	}, [html, css, javascript, userAnswerOutput]);
 
 	return (
 		<Box
@@ -51,7 +50,6 @@ export const Output = (props: OutputProps) => {
 		>
 			<iframe
 				title="iframe"
-				frameBorder="0"
 				width="100%"
 				height="100%"
 				srcDoc={iframeContent}
