@@ -20,8 +20,6 @@ export const Output = (props: OutputProps) => {
 	const [currentOutput, setCurrentOutput] = useState('user');
 	const theme = useTheme();
 
-	console.log('theme.palette.secondary', theme.palette.secondary);
-
 	useEffect(() => {
 		setHtml(userAnswerOutput?.html);
 		setCss(userAnswerOutput?.css);

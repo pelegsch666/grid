@@ -1,5 +1,5 @@
 // imports from 3rd party libraries
-import { Stack } from '@mui/material';
+import { Button, Stack } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -22,6 +22,10 @@ export const LevelTemplate = () => {
 		setCurrentLevel(levels[Number(levelNumber) - 1]);
 	}, [levelNumber]);
 
+	const handleSubmit = () => {
+		console.log('submit');
+	};
+
 	return (
 		<>
 			<Stack
@@ -31,6 +35,18 @@ export const LevelTemplate = () => {
 				}}
 			>
 				<Instructions instructions={currentLevel.instructions} />
+				<Stack direction="row">
+					<Button
+						onClick={handleSubmit}
+						variant="contained"
+						size="large"
+						sx={{
+							width: 'fit-content',
+						}}
+					>
+						Submit
+					</Button>
+				</Stack>
 
 				<Stack
 					direction="row"

@@ -14,7 +14,6 @@ export const LevelLink = ({ levelIndex }: LevelLinkProps) => {
 	const { levelNumber } = useParams();
 	const isCurrentLevel = Number(levelNumber) === levelIndex + 1;
 	const { palette } = useTheme();
-	console.log(palette);
 	return (
 		<Button
 			variant="contained"
