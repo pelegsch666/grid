@@ -1,29 +1,20 @@
 // imports from 3rd party libraries
-
 import { css } from '@codemirror/lang-css';
 import { html } from '@codemirror/lang-html';
 import { javascript } from '@codemirror/lang-javascript';
-import CodeMirror from '@uiw/react-codemirror';
-
-import { useEffect, useState } from 'react';
-
 import { Typography } from '@mui/material';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-
+import CodeMirror from '@uiw/react-codemirror';
 import { useCallback } from 'react';
+import { useRecoilState } from 'recoil';
 
 // types
 import { CodePanelProps } from 'views/Levels/components/CodePanel/CodePanel.types';
 
 // store
-import { currentLevelState, userAnswerOutputState } from 'store';
+import { currentLevelState } from 'store';
 
 export const CodePanel = ({ mode }: CodePanelProps) => {
-	const currentLevel = useRecoilValue(currentLevelState);
-	const [currentCode, setCurrentCode] = useState('');
-	const [initCode, setInitCode] = useState('');
-	const setUserAnswerOutput = useSetRecoilState(userAnswerOutputState);
-	const userAnswerOutput = useRecoilValue(userAnswerOutputState);
+	const [currentLevel, setCurrentLevel] = useRecoilState(currentLevelState);
 
 	const getExtension = useCallback(() => {
 		switch (mode) {
@@ -38,23 +29,17 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 		}
 	}, [mode]);
 
-	useEffect(() => {
-		setInitCode(currentLevel?.userAnswer?.[mode]);
-	}, [currentLevel?.userAnswer, mode]);
-
-	useEffect(() => {
-		setCurrentCode(initCode);
-	}, [initCode]);
-
 	const onChange = useCallback(
-		(value: string, viewUpdate: any) => {
-			setCurrentCode(value);
-			setUserAnswerOutput({
-				...userAnswerOutput,
-				[mode]: value,
-			});
+		(value: string) => {
+			setCurrentLevel((prev) => ({
+				...prev,
+				userAnswer: {
+					...prev.userAnswer,
+					[mode]: value,
+				},
+			}));
 		},
-		[mode, setUserAnswerOutput, userAnswerOutput]
+		[setCurrentLevel, mode]
 	);
 
 	return (
@@ -69,7 +54,7 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 				{mode}
 			</Typography>
 			<CodeMirror
-				value={currentCode}
+				value={currentLevel?.userAnswer?.[mode]}
 				height="200px"
 				extensions={[getExtension()]}
 				onChange={onChange}

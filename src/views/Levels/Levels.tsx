@@ -51,9 +51,6 @@ export const Levels = () => {
 	const levels = useRecoilValue(levelsState);
 	return (
 		<>
-			<Typography variant="h1" textAlign="center">
-				Levels
-			</Typography>
 			<Stack direction="row" spacing={2}>
 				{levels.map((level, index) => (
 					<LevelLink key={level.id} levelIndex={index} />
