@@ -1,15 +1,16 @@
 // imports from 3rd party libraries
 
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/mode/css/css';
-import 'codemirror/mode/htmlmixed/htmlmixed';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/theme/material.css';
+import { css } from '@codemirror/lang-css';
+import { html } from '@codemirror/lang-html';
+import { javascript } from '@codemirror/lang-javascript';
+import CodeMirror from '@uiw/react-codemirror';
+
 import { useEffect, useState } from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
 
 import { Typography } from '@mui/material';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+
+import { useCallback } from 'react';
 
 // types
 import { CodePanelProps } from 'views/Levels/components/CodePanel/CodePanel.types';
@@ -17,15 +18,25 @@ import { CodePanelProps } from 'views/Levels/components/CodePanel/CodePanel.type
 // store
 import { currentLevelState, userAnswerOutputState } from 'store';
 
-// styles
-import './CodePanel.css';
-
 export const CodePanel = ({ mode }: CodePanelProps) => {
 	const currentLevel = useRecoilValue(currentLevelState);
 	const [currentCode, setCurrentCode] = useState('');
 	const [initCode, setInitCode] = useState('');
 	const setUserAnswerOutput = useSetRecoilState(userAnswerOutputState);
 	const userAnswerOutput = useRecoilValue(userAnswerOutputState);
+
+	const getExtension = useCallback(() => {
+		switch (mode) {
+			case 'html':
+				return html();
+			case 'css':
+				return css();
+			case 'javascript':
+				return javascript({ jsx: true });
+			default:
+				return html();
+		}
+	}, [mode]);
 
 	useEffect(() => {
 		setInitCode(currentLevel?.userAnswer?.[mode]);
@@ -35,11 +46,16 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 		setCurrentCode(initCode);
 	}, [initCode]);
 
-	const onChange = (editor: any, data: any, value: string) => {
-		const newUserAnswer = { ...userAnswerOutput };
-		newUserAnswer[mode] = value;
-		setUserAnswerOutput(newUserAnswer);
-	};
+	const onChange = useCallback(
+		(value: string, viewUpdate: any) => {
+			setCurrentCode(value);
+			setUserAnswerOutput({
+				...userAnswerOutput,
+				[mode]: value,
+			});
+		},
+		[mode, setUserAnswerOutput, userAnswerOutput]
+	);
 
 	return (
 		<>
@@ -53,14 +69,10 @@ export const CodePanel = ({ mode }: CodePanelProps) => {
 				{mode}
 			</Typography>
 			<CodeMirror
-				onChange={(editor, data, value) => onChange(editor, data, value)}
-				options={{
-					mode: mode === 'html' ? 'htmlmixed' : mode,
-					theme: 'material',
-					lineNumbers: true,
-					inputStyle: 'textarea',
-				}}
 				value={currentCode}
+				height="200px"
+				extensions={[getExtension()]}
+				onChange={onChange}
 			/>
 		</>
 	);
