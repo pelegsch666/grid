@@ -7,10 +7,9 @@ import { useRecoilValue } from 'recoil';
 import { OutputProps } from 'views/Levels/components/Output/Output.types';
 
 // store
-import { currentLevelState, userAnswerOutputState } from 'store';
+import { currentLevelState } from 'store';
 
 export const Output = (props: OutputProps) => {
-	const userAnswerOutput = useRecoilValue(userAnswerOutputState);
 	const currentLevel = useRecoilValue(currentLevelState);
 	const [html, setHtml] = useState('');
 	const [css, setCss] = useState('');
@@ -21,10 +20,10 @@ export const Output = (props: OutputProps) => {
 	const theme = useTheme();
 
 	useEffect(() => {
-		setHtml(userAnswerOutput?.html);
-		setCss(userAnswerOutput?.css);
-		setJavascript(userAnswerOutput?.javascript);
-	}, [userAnswerOutput]);
+		setHtml(currentLevel?.userAnswer?.html);
+		setCss(currentLevel?.userAnswer?.css);
+		setJavascript(currentLevel?.userAnswer?.javascript);
+	}, [currentLevel?.userAnswer]);
 
 	useEffect(() => {
 		const { html, css, javascript } = currentLevel?.correctAnswer || {};
@@ -63,7 +62,7 @@ export const Output = (props: OutputProps) => {
 		  </body>
 		</html>
 	  `);
-	}, [html, css, javascript, userAnswerOutput]);
+	}, [html, css, javascript]);
 
 	const handleOutputChange = (output: 'user' | 'target') => {
 		setCurrentOutput(output);

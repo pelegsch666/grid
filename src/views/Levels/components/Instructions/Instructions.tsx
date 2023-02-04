@@ -11,7 +11,7 @@ export const Instructions = ({ instructions }: InstructionsProps) => {
 				padding: '1rem',
 			}}
 		>
-			{instructions.map((instruction, index) => (
+			{instructions?.map((instruction, index) => (
 				<Typography key={index} variant="body1">
 					{index + 1}. {instruction}
 				</Typography>
