@@ -1,30 +1,19 @@
-// imports rom 3rd party libraries
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useParams } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-
-// components
 import { Navbar } from 'components/Navbar';
 import { Router } from 'components/Router';
-
-// styles
-import './App.css';
-
-// store
+import { levels } from 'data/levels';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import {
 	currentLevelIndexState,
 	currentLevelState,
 	levelsState,
 	themeState,
 } from 'store';
-
-// helpers
-import { useEffect } from 'react';
 import { themeHelpers } from 'utils/helpers/themeHelpers';
-
-// data
-import { levels } from 'data/levels';
+import './App.css';
 
 export const App = () => {
 	const theme = useRecoilValue(themeState);
