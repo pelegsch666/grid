@@ -1,7 +1,17 @@
 export const CodingTasks = () => {
   return (
     <>
-      <h1>Im Coding Tasks</h1>
+      
+
+
     </>
   );
 };
+
+
+// search section due to category and difficulty
+// descriptions :P
+// section that display the output of the code
+// section that display the code as editior 
+
+

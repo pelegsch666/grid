@@ -1,27 +1,19 @@
-// imports rom 3rd party libraries
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useParams } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-
-// components
 import { Navbar } from 'components/Navbar';
 import { Router } from 'components/Router';
-
-// styles
-import './App.css';
-
-// store
+import { levels } from 'data/levels';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import {
 	currentLevelIndexState,
 	currentLevelState,
 	levelsState,
 	themeState,
-	userAnswerOutputState,
 } from 'store';
-import { useEffect } from 'react';
 import { themeHelpers } from 'utils/helpers/themeHelpers';
-import { levels } from 'data/levels';
+import './App.css';
 
 export const App = () => {
 	const theme = useRecoilValue(themeState);
@@ -32,7 +24,6 @@ export const App = () => {
 	);
 
 	const setCurrentLevel = useSetRecoilState(currentLevelState);
-	const setUserAnswerOutput = useSetRecoilState(userAnswerOutputState);
 
 	useEffect(() => {
 		setLevels(levels);
@@ -48,11 +39,6 @@ export const App = () => {
 	useEffect(() => {
 		setCurrentLevel(levels?.[currentLevelIndex]);
 	}, [currentLevelIndex, setCurrentLevel]);
-
-	useEffect(() => {
-		const userAnswer = levels?.[currentLevelIndex]?.userAnswer;
-		setUserAnswerOutput(userAnswer);
-	}, [currentLevelIndex, setUserAnswerOutput]);
 
 	return (
 		<ThemeProvider theme={createTheme(themeHelpers.getDesignTokens(theme))}>
