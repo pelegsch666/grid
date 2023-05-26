@@ -1,10 +1,5 @@
-
+import ComingSoon from 'components/ComingSoon';
 
 export const Docs = () => {
- return (
-    <>
-    <h1>I'm Docs</h1>
-    </>
- )
-}
-
+	return <ComingSoon />;
+};

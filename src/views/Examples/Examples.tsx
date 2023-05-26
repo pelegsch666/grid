@@ -1,6 +1,4 @@
-
+import ComingSoon from 'components/ComingSoon';
 export const Examples = () => {
-return (<>
-<h1>Iam Examples</h1>
-</>)
-}
+	return <ComingSoon />;
+};

@@ -1,7 +1,5 @@
+import ComingSoon from 'components/ComingSoon';
+
 export const Home = () => {
-    return (
-        <>
-        <h1>Iam Home</h1>
-        </>
-    )
-}
+	return <ComingSoon />;
+};

@@ -1,4 +1,3 @@
-import {CodingTasks} from './CodingTasks'
+import CodingTasks from './CodingTasks';
 
-export {CodingTasks}
-
+export { CodingTasks };

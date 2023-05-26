@@ -1,12 +1,11 @@
-import { Box, Stack, Chip } from '@mui/material';
+import { Box, Chip, Stack } from '@mui/material';
 
 export const SearchSection = () => {
-  return (
-    <Stack direction="row">
-      <Box>
-        <Chip label="Clickable Deletable" />
-       
-      </Box>
-    </Stack>
-  );
+	return (
+		<Stack direction='row'>
+			<Box>
+				<Chip label='Clickable Deletable' />
+			</Box>
+		</Stack>
+	);
 };
