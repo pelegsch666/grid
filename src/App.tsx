@@ -19,12 +19,8 @@ import {
 	themeState,
 	userAnswerOutputState,
 } from 'store';
-
-// helpers
 import { useEffect } from 'react';
 import { themeHelpers } from 'utils/helpers/themeHelpers';
-
-// data
 import { levels } from 'data/levels';
 
 export const App = () => {
