@@ -5,7 +5,7 @@ import Instructions from '@/app/levels/_components/Instructions';
 import Output from '@/app/levels/_components/Output';
 import { levels } from '@/data/levels';
 import { currentLevelIdState, currentLevelState } from '@/store';
-import { getLevelById } from '@/utils/helpers';
+import { getLevelById } from '@/utils/miscUtils';
 import { useParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';

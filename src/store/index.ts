@@ -1,11 +1,10 @@
 import { Level } from '@/types';
-import { THEMES_NAMES } from '@/utils/constants';
 import { atom, RecoilState } from 'recoil';
 
 export const themeState = atom({
 	key: 'themeState',
-	default: 'springtime',
-}) as RecoilState<(typeof THEMES_NAMES)[number]>;
+	default: 'light',
+}) as RecoilState<string[number]>;
 
 export const levelsState = atom({
 	key: 'levelsState',
