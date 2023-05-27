@@ -12,10 +12,10 @@ export const levelsState = atom({
 	default: [] as Level[],
 }) as RecoilState<Level[]>;
 
-export const currentLevelIndexState = atom({
-	key: 'currentLevelIndexState',
-	default: 0,
-}) as RecoilState<number>;
+export const currentLevelIdState = atom({
+	key: 'currentLevelIdState',
+	default: '1',
+}) as RecoilState<string>;
 
 export const currentLevelState = atom({
 	key: 'currentLevelState',
