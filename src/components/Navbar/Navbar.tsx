@@ -1,25 +1,22 @@
-// imports from 3rd party libraries
+import { VIEWS_NAMES } from '@/utils/constants';
+import { stringHelpers } from '@/utils/helpers';
 import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
+import {
+	AppBar,
+	Box,
+	Button,
+	Container,
+	IconButton,
+	Menu,
+	MenuItem,
+	Toolbar,
+	Tooltip,
+	Typography,
+} from '@mui/material';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
-// helpers
-import { stringHelpers } from 'utils/helpers';
-
-// constants
-import { VIEWS_NAMES } from 'utils/constants';
-
-export function Navbar() {
+const Navbar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
 		null
 	);
@@ -43,14 +40,14 @@ export function Navbar() {
 	};
 
 	return (
-		<AppBar position="static">
-			<Container maxWidth="xl">
+		<AppBar position='static'>
+			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
 					<Typography
-						variant="h6"
+						variant='h6'
 						noWrap
-						component="a"
-						href="/"
+						component='a'
+						href='/'
 						sx={{
 							mr: 2,
 							display: { xs: 'none', md: 'flex' },
@@ -66,17 +63,17 @@ export function Navbar() {
 
 					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
 						<IconButton
-							size="large"
-							aria-label="account of current user"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
+							size='large'
+							aria-label='account of current user'
+							aria-controls='menu-appbar'
+							aria-haspopup='true'
 							onClick={handleOpenNavMenu}
-							color="inherit"
+							color='inherit'
 						>
 							<MenuIcon />
 						</IconButton>
 						<Menu
-							id="menu-appbar"
+							id='menu-appbar'
 							anchorEl={anchorElNav}
 							anchorOrigin={{
 								vertical: 'bottom',
@@ -99,7 +96,7 @@ export function Navbar() {
 										style={{ color: 'inherit', textDecoration: 'none' }}
 										to={stringHelpers.regularCaseToKebabCase(page)}
 									>
-										<Typography textAlign="center">{page}</Typography>
+										<Typography textAlign='center'>{page}</Typography>
 									</NavLink>
 								</MenuItem>
 							))}
@@ -116,14 +113,14 @@ export function Navbar() {
 									style={{ color: 'inherit', textDecoration: 'none' }}
 									to={stringHelpers.regularCaseToKebabCase(page)}
 								>
-									<Typography textAlign="center">{page}</Typography>
+									<Typography textAlign='center'>{page}</Typography>
 								</NavLink>
 							</Button>
 						))}
 					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>
-						<Tooltip title="Open settings">
+						<Tooltip title='Open settings'>
 							<IconButton
 								onClick={handleOpenUserMenu}
 								sx={{ p: 0 }}
@@ -131,7 +128,7 @@ export function Navbar() {
 						</Tooltip>
 						<Menu
 							sx={{ mt: '45px' }}
-							id="menu-appbar"
+							id='menu-appbar'
 							anchorEl={anchorElUser}
 							anchorOrigin={{
 								vertical: 'top',
@@ -150,4 +147,6 @@ export function Navbar() {
 			</Container>
 		</AppBar>
 	);
-}
+};
+
+export default Navbar;

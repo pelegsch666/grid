@@ -1,21 +1,21 @@
-import { CssBaseline } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Navbar } from 'components/Navbar';
-import { Router } from 'components/Router';
-import { levels } from 'data/levels';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { levels } from '@/data/levels';
 import {
 	currentLevelIndexState,
 	currentLevelState,
 	levelsState,
 	themeState,
-} from 'store';
-import { themeHelpers } from 'utils/helpers/themeHelpers';
+} from '@/store';
+import { themeHelpers } from '@/utils/helpers/themeHelpers';
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import './App.css';
+import Navbar from './components/Navbar';
+import Router from './components/Router';
 
-export const App = () => {
+const App = () => {
 	const theme = useRecoilValue(themeState);
 	const setLevels = useSetRecoilState(levelsState);
 	const { levelNumber } = useParams();
@@ -50,3 +50,5 @@ export const App = () => {
 		</ThemeProvider>
 	);
 };
+
+export default App;

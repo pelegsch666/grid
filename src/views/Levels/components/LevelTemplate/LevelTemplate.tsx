@@ -1,21 +1,14 @@
-// imports from 3rd party libraries
+import { levels } from '@/data/levels';
+import { currentLevelIndexState, currentLevelState } from '@/store';
+import CodeEditor from '@/views/Levels/components/CodeEditor';
+import Instructions from '@/views/Levels/components/Instructions';
+import Output from '@/views/Levels/components/Output';
 import { Button, Stack } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
-// components
-import { CodeEditor } from 'views/Levels/components/CodeEditor';
-import { Instructions } from 'views/Levels/components/Instructions';
-import { Output } from 'views/Levels/components/Output';
-
-// data
-import { levels } from 'data/levels';
-
-// store
-import { currentLevelIndexState, currentLevelState } from 'store';
-
-export const LevelTemplate = () => {
+const LevelTemplate = () => {
 	const { levelNumber } = useParams();
 	const [currentLevel, setCurrentLevel] = useRecoilState(currentLevelState);
 	const setCurrentLevelIndex = useSetRecoilState(currentLevelIndexState);
@@ -41,11 +34,11 @@ export const LevelTemplate = () => {
 				}}
 			>
 				<Instructions instructions={currentLevel.instructions} />
-				<Stack direction="row">
+				<Stack direction='row'>
 					<Button
 						onClick={handleSubmit}
-						variant="contained"
-						size="large"
+						variant='contained'
+						size='large'
 						sx={{
 							width: 'fit-content',
 						}}
@@ -55,7 +48,7 @@ export const LevelTemplate = () => {
 				</Stack>
 
 				<Stack
-					direction="row"
+					direction='row'
 					sx={{
 						justifyContent: 'space-between',
 						width: '100%',
@@ -68,3 +61,5 @@ export const LevelTemplate = () => {
 		</>
 	);
 };
+
+export default LevelTemplate;

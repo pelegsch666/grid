@@ -1,4 +1,3 @@
-// components
-import { LevelTemplate } from 'views/Levels/components/LevelTemplate/LevelTemplate';
+import  LevelTemplate  from '@/views/Levels/components/LevelTemplate/LevelTemplate';
 
-export { LevelTemplate };
+export default LevelTemplate;

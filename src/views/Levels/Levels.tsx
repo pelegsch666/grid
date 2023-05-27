@@ -1,22 +1,19 @@
-// imports from 3rd party libraries
-import { Button, Stack, Typography, useTheme } from '@mui/material';
+import { levelsState } from '@/store';
+import { Button, Stack, useTheme } from '@mui/material';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-
-// store
-import { levelsState } from 'store';
 
 export interface LevelLinkProps {
 	levelIndex: number;
 }
 
-export const LevelLink = ({ levelIndex }: LevelLinkProps) => {
+const LevelLink = ({ levelIndex }: LevelLinkProps) => {
 	const { levelNumber } = useParams();
 	const isCurrentLevel = Number(levelNumber) === levelIndex + 1;
 	const { palette } = useTheme();
 	return (
 		<Button
-			variant="contained"
+			variant='contained'
 			sx={{
 				backgroundColor: isCurrentLevel
 					? palette.secondary.main
@@ -47,11 +44,11 @@ export const LevelLink = ({ levelIndex }: LevelLinkProps) => {
 	);
 };
 
-export const Levels = () => {
+const Levels = () => {
 	const levels = useRecoilValue(levelsState);
 	return (
 		<>
-			<Stack direction="row" spacing={2}>
+			<Stack direction='row' spacing={2}>
 				{levels.map((level, index) => (
 					<LevelLink key={level.id} levelIndex={index} />
 				))}
@@ -60,6 +57,8 @@ export const Levels = () => {
 		</>
 	);
 };
+
+export default Levels;
 
 // 1.	Define a div as Grid container.
 // 2.	Define the number of columns.

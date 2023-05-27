@@ -1,5 +1,7 @@
-import ComingSoon from 'components/ComingSoon';
+import ComingSoon from '@/components/ComingSoon';
 
-export const Docs = () => {
+const Docs = () => {
 	return <ComingSoon />;
 };
+
+export default Docs;

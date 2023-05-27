@@ -1,4 +1,3 @@
-// components
-import { CodeEditor } from 'views/Levels/components/CodeEditor/CodeEditor';
+import CodeEditor from '@/views/Levels/components/CodeEditor/CodeEditor';
 
-export { CodeEditor };
+export default CodeEditor;

@@ -1,3 +1,3 @@
-import { Docs } from './Docs';
+import Docs from '@/views/Docs/Docs';
 
-export { Docs };
+export default Docs;

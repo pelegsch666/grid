@@ -1,16 +1,11 @@
-// imports from 3rd party libraries
+import { Level } from '@/types';
+import { THEMES_NAMES } from '@/utils/constants';
 import { atom, RecoilState } from 'recoil';
-
-// constants
-import { THEMES_NAMES } from 'utils/constants';
-
-// types
-import { Level } from 'types';
 
 export const themeState = atom({
 	key: 'themeState',
 	default: 'springtime',
-}) as RecoilState<typeof THEMES_NAMES[number]>;
+}) as RecoilState<(typeof THEMES_NAMES)[number]>;
 
 export const levelsState = atom({
 	key: 'levelsState',

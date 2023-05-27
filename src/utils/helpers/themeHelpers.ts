@@ -1,8 +1,8 @@
-import { THEMES_NAMES } from 'utils/constants';
+import { THEMES_NAMES } from '@/utils/constants';
 
-import { palettes } from 'theme/palettes';
+import { palettes } from '@/theme/palettes';
 
-const getDesignTokens = (mode: typeof THEMES_NAMES[number]) => {
+const getDesignTokens = (mode: (typeof THEMES_NAMES)[number]) => {
 	if (palettes[mode]) {
 		return palettes[mode];
 	} else {

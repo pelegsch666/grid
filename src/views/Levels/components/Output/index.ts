@@ -1,4 +1,3 @@
-// components
-import { Output } from 'views/Levels/components/Output/Output';
+import Output from '@/views/Levels/components/Output/Output';
 
-export { Output };
+export default Output;

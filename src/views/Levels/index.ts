@@ -1,3 +1,3 @@
-import { Levels } from './Levels';
+import Levels from '@/views/Levels/Levels';
 
-export { Levels };
+export default Levels;

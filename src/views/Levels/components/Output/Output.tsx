@@ -1,15 +1,9 @@
-// imports from 3rd party libraries
+import { currentLevelState } from '@/store';
 import { Box, Button, ButtonGroup, useTheme } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
-// types
-import { OutputProps } from 'views/Levels/components/Output/Output.types';
-
-// store
-import { currentLevelState } from 'store';
-
-export const Output = (props: OutputProps) => {
+const Output = () => {
 	const currentLevel = useRecoilValue(currentLevelState);
 	const [html, setHtml] = useState('');
 	const [css, setCss] = useState('');
@@ -97,8 +91,8 @@ export const Output = (props: OutputProps) => {
 			</ButtonGroup>
 
 			<iframe
-				title="iframe"
-				width="100%"
+				title='iframe'
+				width='100%'
 				style={{
 					backgroundColor: 'white',
 					borderStyle: 'solid',
@@ -116,3 +110,5 @@ export const Output = (props: OutputProps) => {
 		</Box>
 	);
 };
+
+export default Output;

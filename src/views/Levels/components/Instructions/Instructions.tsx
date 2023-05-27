@@ -1,10 +1,7 @@
-// imports from 3rd party libraries
+import { InstructionsProps } from '@/views/Levels/components/Instructions/Instructions.types';
 import { Stack, Typography } from '@mui/material';
 
-// types
-import { InstructionsProps } from 'views/Levels/components/Instructions/Instructions.types';
-
-export const Instructions = ({ instructions }: InstructionsProps) => {
+const Instructions = ({ instructions }: InstructionsProps) => {
 	return (
 		<Stack
 			sx={{
@@ -12,10 +9,12 @@ export const Instructions = ({ instructions }: InstructionsProps) => {
 			}}
 		>
 			{instructions?.map((instruction, index) => (
-				<Typography key={index} variant="body1">
+				<Typography key={index} variant='body1'>
 					{index + 1}. {instruction}
 				</Typography>
 			))}
 		</Stack>
 	);
 };
+
+export default Instructions;

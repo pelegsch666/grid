@@ -1,4 +1,3 @@
-// components
-import { CodePanel } from 'views/Levels/components/CodePanel/CodePanel';
+import CodePanel from '@/views/Levels/components/CodePanel/CodePanel';
 
-export { CodePanel };
+export default CodePanel;

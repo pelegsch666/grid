@@ -1,3 +1,3 @@
-import CodingTasks from './CodingTasks';
+import CodingTasks from '@/views/CodingTasks/CodingTasks';
 
-export { CodingTasks };
+export default CodingTasks;

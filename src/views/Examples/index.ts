@@ -1,3 +1,3 @@
-import { Examples } from "./Examples";
+import Examples from '@/views/Examples/Examples';
 
-export {Examples}
+export default Examples;

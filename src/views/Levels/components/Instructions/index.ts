@@ -1,4 +1,3 @@
-// components
-import { Instructions } from 'views/Levels/components/Instructions/Instructions';
+import Instructions from '@/views/Levels/components/Instructions/Instructions';
 
-export { Instructions };
+export default Instructions;

@@ -1,6 +1,6 @@
 import { Box, Chip, Stack } from '@mui/material';
 
-export const SearchSection = () => {
+const SearchSection = () => {
 	return (
 		<Stack direction='row'>
 			<Box>
@@ -9,3 +9,5 @@ export const SearchSection = () => {
 		</Stack>
 	);
 };
+
+export default SearchSection;
