@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 
-interface StyledTestComponentProps {
-	test: string;
-}
-
-const StyledTestComponent = styled.div<StyledTestComponentProps>`
-	background-color: ${({ test }) => test};
-	color: ${({ theme }) => theme.primary.getContrastText('main')};
+const StyledTestComponent = styled.div`
+	background-color: ${({ theme }) => theme?.primary?.main};
+	color: ${({ theme }) => theme?.primary?.getContrastText('main')};
 	padding: 1rem;
 `;
 
 const TestComponent = () => {
-	return <StyledTestComponent test='salmon'>hi</StyledTestComponent>;
+	return <StyledTestComponent>hi</StyledTestComponent>;
 };
 
 export default TestComponent;
