@@ -1,12 +1,10 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 interface LevelLinkProps {
 	levelIndex: number;
 }
 
 const LevelLink = ({ levelIndex }: LevelLinkProps) => {
-	const { levelNumber } = useRouter().query;
 	return (
 		<button>
 			<Link

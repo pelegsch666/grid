@@ -1,3 +1,5 @@
+'use client';
+
 import { currentLevelState } from '@/store';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';

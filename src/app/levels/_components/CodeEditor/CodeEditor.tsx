@@ -1,3 +1,5 @@
+'use client';
+
 import CodePanel from '@/app/levels/_components/CodePanel';
 import { MODES } from '@/app/levels/_utils/_constants';
 import { currentLevelState } from '@/store';

@@ -1,3 +1,5 @@
+'use client'
+
 import { currentLevelState } from '@/store';
 import { css } from '@codemirror/lang-css';
 import { html } from '@codemirror/lang-html';
