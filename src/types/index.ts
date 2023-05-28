@@ -1,16 +1,4 @@
-export type CustomPaletteModeState =
-	| 'light'
-	| 'dark'
-	| 'fantasy'
-	| 'muiLight'
-	| 'muiDark'
-	| 'emerald'
-	| 'nature'
-	| 'sunset'
-	| 'pastel'
-	| 'springtime'
-	| 'mystical'
-	| 'ethereal';
+export type CustomPaletteModeState = 'light';
 
 export interface UserProperty {
 	type: 'container' | 'item';

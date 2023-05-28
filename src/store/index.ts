@@ -1,26 +1,20 @@
-// imports from 3rd party libraries
+import { Level } from '@/types';
 import { atom, RecoilState } from 'recoil';
-
-// constants
-import { THEMES_NAMES } from 'utils/constants';
-
-// types
-import { Level } from 'types';
 
 export const themeState = atom({
 	key: 'themeState',
-	default: 'springtime',
-}) as RecoilState<typeof THEMES_NAMES[number]>;
+	default: 'light',
+}) as RecoilState<string[number]>;
 
 export const levelsState = atom({
 	key: 'levelsState',
 	default: [] as Level[],
 }) as RecoilState<Level[]>;
 
-export const currentLevelIndexState = atom({
-	key: 'currentLevelIndexState',
-	default: 0,
-}) as RecoilState<number>;
+export const currentLevelIdState = atom({
+	key: 'currentLevelIdState',
+	default: '1',
+}) as RecoilState<string>;
 
 export const currentLevelState = atom({
 	key: 'currentLevelState',
