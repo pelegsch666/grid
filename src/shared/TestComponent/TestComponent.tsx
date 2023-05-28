@@ -7,7 +7,9 @@ const StyledTestComponent = styled.div`
 `;
 
 const TestComponent = () => {
-	return <StyledTestComponent>hi</StyledTestComponent>;
+	return <StyledTestComponent>
+		hi
+	</StyledTestComponent>;
 };
 
 export default TestComponent;

@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import Navbar from '@/app/_components/Navbar';
 import { Inter } from 'next/font/google';
 import { RecoilRoot } from 'recoil';

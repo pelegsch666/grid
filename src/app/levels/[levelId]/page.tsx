@@ -1,5 +1,4 @@
 'use client';
-
 import CodeEditor from '@/app/levels/_components/CodeEditor';
 import Instructions from '@/app/levels/_components/Instructions';
 import Output from '@/app/levels/_components/Output';
