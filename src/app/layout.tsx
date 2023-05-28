@@ -3,6 +3,7 @@
 import Navbar from '@/app/_components/Navbar';
 import { Inter } from 'next/font/google';
 import { RecoilRoot } from 'recoil';
+import AppWrapper from '@/app/_components/AppWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,8 +22,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 			</head>
 			<body className={inter.className}>
 				<RecoilRoot>
-					<Navbar />
-					{children}
+					<AppWrapper>
+						<Navbar />
+						{children}
+					</AppWrapper>
+				
 				</RecoilRoot>
 			</body>
 		</html>
