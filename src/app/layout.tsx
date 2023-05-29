@@ -2,7 +2,7 @@
 
 import AppWrapper from '@/app/_components/AppWrapper';
 import StyledComponentsRegistry from '@/lib/registry';
-import Navbar from '@/shared/Navbar';
+import Navbar from '@/app/_components/Navbar';
 import React from 'react';
 import RecoilWrapper from './_components/RecoilWrapper ';
 
