@@ -1,9 +1,9 @@
+'use client';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-  background-color: ${({ theme }) => theme?.primary?.main};
   color: ${({ theme }) => theme?.primary?.getContrastText('main')};
   padding: 1rem;
   width: fit-content;
@@ -34,7 +34,6 @@ const Navbar = () => {
         <Link href="/levels">Levels</Link>
       </StyledDiv>
       <StyledDiv>
-      
       </StyledDiv>
     </StyledNav>
   );

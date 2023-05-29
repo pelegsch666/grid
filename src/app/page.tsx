@@ -1,4 +1,4 @@
-'use client';
+'use-client';
 
 import TestComponent from '@/shared/TestComponent/TestComponent';
 
