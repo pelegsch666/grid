@@ -1,3 +1,5 @@
+'use client';
+
 import { levels } from '@/data/levels';
 import Link from 'next/link';
 

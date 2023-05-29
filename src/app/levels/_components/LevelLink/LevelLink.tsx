@@ -1,5 +1,7 @@
-import Link from 'next/link';
+'use client';
 
+import Link from 'next/link';
+import React from 'react';
 interface LevelLinkProps {
 	levelIndex: number;
 }

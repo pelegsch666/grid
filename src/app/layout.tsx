@@ -1,10 +1,10 @@
 'use client';
 
-import Navbar from '@/app/_components/Navbar';
-import { Inter } from 'next/font/google';
-import { RecoilRoot } from 'recoil';
-
-const inter = Inter({ subsets: ['latin'] });
+import AppWrapper from '@/app/_components/AppWrapper';
+import StyledComponentsRegistry from '@/lib/registry';
+import Navbar from '@/shared/Navbar';
+import React from 'react';
+import RecoilWrapper from './_components/RecoilWrapper ';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
@@ -19,11 +19,15 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 				/>
 				<title>Code Grid</title>
 			</head>
-			<body className={inter.className}>
-				<RecoilRoot>
-					<Navbar />
-					{children}
-				</RecoilRoot>
+			<body>
+				<StyledComponentsRegistry>
+					<RecoilWrapper>
+						<AppWrapper>
+							<Navbar />
+							{children}
+						</AppWrapper>
+					</RecoilWrapper>
+				</StyledComponentsRegistry>
 			</body>
 		</html>
 	);

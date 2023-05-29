@@ -1,5 +1,9 @@
+'use-client';
+
+import TestComponent from '@/shared/TestComponent/TestComponent';
+
 const Home = () => {
-	return <main>hi</main>;
+	return <TestComponent />;
 };
 
 export default Home;
