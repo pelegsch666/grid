@@ -1,3 +1,5 @@
-import ConsolePanel from "./ConsolePanel";
+'use client';
+
+import ConsolePanel from './ConsolePanel';
 
 export default ConsolePanel;

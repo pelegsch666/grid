@@ -1,10 +1,10 @@
-'use client'
+'use client';
+
 import { themeState } from '@/store';
 import themes from '@/themes';
 import { Theme } from '@/types';
 import { useRecoilValue } from 'recoil';
 import { ThemeProvider } from 'styled-components';
-
 
 interface CustomThemeProviderProps {
 	children: React.ReactNode;
@@ -18,7 +18,6 @@ const CustomThemeProvider = ({ children, theme }: CustomThemeProviderProps) => {
 interface AppWrapperProps {
 	children: React.ReactNode;
 }
-
 
 const AppWrapper = ({ children }: AppWrapperProps) => {
 	const themeName = useRecoilValue(themeState);

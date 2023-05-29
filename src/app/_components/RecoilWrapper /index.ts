@@ -1,3 +1,5 @@
-import RecoilWrapper from "./RecoilWrapper";
+'use client';
 
-export default RecoilWrapper
+import RecoilWrapper from './RecoilWrapper';
+
+export default RecoilWrapper;

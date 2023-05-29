@@ -1,4 +1,5 @@
 'use client';
+
 import LevelsNavbar from '@/app/levels/_components/LevelsNavbar/LevelsNavbar';
 import React from 'react';
 

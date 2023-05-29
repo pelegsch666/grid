@@ -1,4 +1,5 @@
 'use client';
+
 import ConsolePanel from '@/app/_components/ConsolePanel';
 import styled from 'styled-components';
 
@@ -11,9 +12,11 @@ const StyledTestComponent = styled.div`
 `;
 
 const TestComponent = () => {
-	return <StyledTestComponent>
-		<ConsolePanel />
-	</StyledTestComponent>;
+	return (
+		<StyledTestComponent>
+			<ConsolePanel />
+		</StyledTestComponent>
+	);
 };
 
 export default TestComponent;
