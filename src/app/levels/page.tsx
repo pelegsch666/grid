@@ -1,3 +1,4 @@
+'use client'
 const Levels = () => {
 	return <div>Choose a level</div>;
 };

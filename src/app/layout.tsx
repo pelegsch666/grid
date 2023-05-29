@@ -1,9 +1,9 @@
-'use client';
+'use client'
 import React from 'react';
 import Navbar from '@/app/_components/Navbar';
 import { Inter } from 'next/font/google';
-import { RecoilRoot } from 'recoil';
 import AppWrapper from '@/app/_components/AppWrapper';
+import RecoilWrapper from './_components/RecoilWrapper ';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,13 +21,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 				<title>Code Grid</title>
 			</head>
 			<body className={inter.className}>
-				<RecoilRoot>
+				<RecoilWrapper>
 					<AppWrapper>
 						<Navbar />
 						{children}
 					</AppWrapper>
 				
-				</RecoilRoot>
+				</RecoilWrapper>
 			</body>
 		</html>
 	);
