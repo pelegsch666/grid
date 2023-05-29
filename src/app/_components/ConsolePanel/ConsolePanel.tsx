@@ -18,6 +18,7 @@ const ConsoleHeader = styled.div`
 	height: 30px;
 	background-color: ${({ theme }) => theme?.primary?.main};
 	color: ${({ theme }) => theme?.primary?.getContrastText('main')};
+
 `;
 
 const ConsoleBody = styled.div`
